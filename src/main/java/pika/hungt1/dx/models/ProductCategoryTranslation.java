@@ -1,31 +1,26 @@
 package pika.hungt1.dx.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 
 @Entity
+@Table(name = "ProductCategoryTranslation")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@IdClass(ProductCategoryTranslationId.class)
 public class ProductCategoryTranslation {
-    @Id
-    private Integer productCategoryId;
 
-    @Id
-    @Column(length = 2)
-    private String languageId;
-
-    private String categoryName;
+    @EmbeddedId
+    private CategoryTranslationId id;
 
     @ManyToOne
-    @JoinColumn(name = "productCategoryId", insertable = false, updatable = false)
-    private ProductCategory category;
+    @MapsId("productCategoryId") // Map với field trong ID class
+    @JoinColumn(name = "ProductCategoryID")
+    private ProductCategory productCategory;
 
     @ManyToOne
-    @JoinColumn(name = "languageId", insertable = false, updatable = false)
+    @MapsId("languageId") // Map với field trong ID class
+    @JoinColumn(name = "LanguageID")
     private Language language;
+
+    @Column(name = "CategoryName")
+    private String categoryName;
 }

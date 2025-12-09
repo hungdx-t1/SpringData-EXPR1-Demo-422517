@@ -1,22 +1,25 @@
 package pika.hungt1.dx.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
-@Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class ProductCategory {
+import java.util.List;
 
+@Entity
+@Table(name = "ProductCategory")
+@Data
+public class ProductCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer productCategoryId;
+    @Column(name = "ProductCategoryID")
+    private Integer id;
 
+    @Column(name = "CanBeShipped")
     private Boolean canBeShipped;
+
+    // Quan hệ 1-N với bản dịch
+    // Optional: để fetch data dễ hơn
+    @OneToMany(mappedBy = "productCategory", fetch = FetchType.LAZY)
+    private List<ProductCategoryTranslation> translations;
 }

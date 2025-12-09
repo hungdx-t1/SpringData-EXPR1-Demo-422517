@@ -4,30 +4,31 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.data.annotation.Id;
 
 @Entity
+@Table(name = "ProductTranslation")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@IdClass(ProductTranslationId.class)
+@ToString(exclude = "product") // tránh vòng lặp vô hạn khi in log
 public class ProductTranslation {
-    @Id
-    private Integer productId;
 
-    @Id
-    @Column(length = 2)
-    private String languageId;
-
-    private String productName;
-
-    private String productDescription;
+    @EmbeddedId
+    private ProductTranslationId id;
 
     @ManyToOne
-    @JoinColumn(name = "productId", insertable = false, updatable = false)
+    @MapsId("productId")
+    @JoinColumn(name = "ProductID")
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "languageId", insertable = false, updatable = false)
+    @MapsId("languageId")
+    @JoinColumn(name = "LanguageID")
     private Language language;
+
+    @Column(name = "ProductName")
+    private String productName;
+
+    @Column(name = "ProductDescription")
+    private String productDescription;
 }

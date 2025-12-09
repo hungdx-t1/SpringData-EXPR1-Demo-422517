@@ -2,21 +2,22 @@ package pika.hungt1.dx.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
 @Entity
+@Table(name = "Language")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Language {
-
     @Id
-    @Column(length = 2)
-    private String languageId;
+    @Column(name = "LanguageID", length = 2)
+    private String languageId; // 'EN', 'VI'
 
-    @Column(nullable = false, length = 20)
+    @Column(name = "Language", nullable = false, length = 20)
     private String language;
 }

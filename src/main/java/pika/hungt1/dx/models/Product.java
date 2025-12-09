@@ -5,24 +5,24 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
+@Table(name = "Product")
+@Data
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer productId;
+    @Column(name = "ProductID")
+    private Integer id;
 
     private BigDecimal price;
-
     private BigDecimal weight;
 
     @ManyToOne
-    @JoinColumn(name = "productCategoryId")
+    @JoinColumn(name = "ProductCategoryID")
     private ProductCategory category;
 
-    // ?
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
+    private List<ProductTranslation> translations;
 }
