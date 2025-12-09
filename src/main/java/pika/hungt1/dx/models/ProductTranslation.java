@@ -1,11 +1,8 @@
 package pika.hungt1.dx.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.springframework.data.annotation.Id;
 
 @Entity
 @Table(name = "ProductTranslation")

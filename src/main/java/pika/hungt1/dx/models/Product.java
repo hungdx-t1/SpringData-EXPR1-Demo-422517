@@ -2,7 +2,6 @@ package pika.hungt1.dx.models;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.Id;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -20,7 +19,7 @@ public class Product {
     private BigDecimal weight;
 
     @ManyToOne
-    @JoinColumn(name = "ProductCategoryID")
+    @JoinColumn(name = "`ProductCategoryID`")
     private ProductCategory category;
 
     @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
