@@ -1,0 +1,7 @@
+Database:
+CREATE DATABASE springdata_demo CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+API Method:
+http://localhost:8080/demo/init - Tạo dữ liệu mẫu
+http://localhost:8080/demo/products?lang=VI - Trả về danh sách sản phẩm tiếng Việt
+http://localhost:8080/demo/products?lang=EN - Trả về tiếng Anh
