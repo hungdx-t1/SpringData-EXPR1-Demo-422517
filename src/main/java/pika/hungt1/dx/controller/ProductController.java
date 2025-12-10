@@ -3,6 +3,7 @@ package pika.hungt1.dx.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pika.hungt1.dx.dto.CategoryDTO;
+import pika.hungt1.dx.dto.ProductCreateDTO;
 import pika.hungt1.dx.dto.ProductDTO;
 import pika.hungt1.dx.service.ProductService;
 
@@ -28,5 +29,10 @@ public class ProductController {
             @RequestParam(required = false) Integer cat // Thêm tham số này
     ) {
         return productService.getAllProducts(lang, cat);
+    }
+
+    @PostMapping("/products")
+    public void createProduct(@RequestBody ProductCreateDTO dto) {
+        productService.createProduct(dto);
     }
 }
