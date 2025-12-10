@@ -60,7 +60,6 @@ function formatMoney($amount, $lang) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABC Shop</title>
     <style>
-        /* GIỮ LẠI STYLE CŨ VÀ THÊM CÁI MỚI DƯỚI ĐÂY */
         body { font-family: 'Segoe UI', sans-serif; background-color: #f4f4f9; padding: 20px; }
         .container { max-width: 1000px; margin: 0 auto; }
         .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
@@ -84,7 +83,7 @@ function formatMoney($amount, $lang) {
         .price { font-size: 1.2em; color: #d9534f; font-weight: bold; }
         .btn-buy { background-color: #28a745; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-weight: 600; }
 
-        /* --- STYLE CHO MODAL VÀ NÚT ADD --- */
+        /* --- modal + add product button --- */
         .btn-add { background-color: #6610f2; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; text-decoration: none; display: inline-block;}
         .btn-add:hover { background-color: #520dc2; }
 
